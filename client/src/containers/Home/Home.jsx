@@ -9,8 +9,9 @@ import M from "materialize-css";
 
 const About = lazy(() => import("../../components/About/About"));
 const Tech = lazy(() => import("../../components/Tech/Tech"));
-const ProjectCard = lazy(() => import("../../components/ProjectCard/ProjectCard"));
-
+const ProjectCard = lazy(() =>
+  import("../../components/ProjectCard/ProjectCard")
+);
 
 const Home = () => {
   const [about, setAbout] = useState(false);
@@ -84,18 +85,16 @@ const Home = () => {
       threshold: 1.0,
     };
     let optionsThree = {
-        rootMargin: "0px",
-        threshold: 1.0,
-      };
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
     const aboutObserver = new IntersectionObserver(lazyAbout, options);
     const techObserver = new IntersectionObserver(lazyTech, optionsTwo);
     const projectObserver = new IntersectionObserver(lazyProject, optionsThree);
 
-
     let aboutTarget = document.querySelector("#about");
     let techTarget = document.querySelector("#tech");
     let projectTarget = document.querySelector("#projects");
-
 
     aboutObserver.observe(aboutTarget);
     techObserver.observe(techTarget);
@@ -129,12 +128,12 @@ const Home = () => {
         </h3>
         <Suspense fallback={null}>{projectComponent}</Suspense>
       </div>
-      <div className="parallax-container">
+      {/* <div className="parallax-container">
         <div className="parallax">
           <img src="./img/IMG_3503.jpeg" />
         </div>
-      </div>
-      <div className="row section-light">
+      </div> */}
+      <div className="row contact">
         <div id="contacts" className="col m12">
           {contacts.map((contact) => (
             <IconLink key={contact.alt} {...contact} />

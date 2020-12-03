@@ -20,5 +20,5 @@ ul {
 }
 
 .animate__animated.animate__fadeIn {
-    --animate-duration: 2s;
+    --animate-duration: 3s;
   }
