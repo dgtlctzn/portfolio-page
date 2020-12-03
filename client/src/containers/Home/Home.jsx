@@ -1,8 +1,10 @@
 import React from "react";
 import About from "../../components/About/About";
+import Tech from "../../components/Tech/Tech"
 import "./Home.css";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import projects from "../../json/projects.json";
+import technologies from "../../json/technologies.json";
 
 const Home = () => {
   return (
@@ -11,6 +13,17 @@ const Home = () => {
       <div id="about-me" className="row">
         <div className="col s12">
           <About />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col offset-m1">
+          <h3>Technical Skills</h3>
+          <div id="break"></div>
+          <div className="row">
+            {technologies.map((tech) => (
+              <Tech key={tech.id} {...tech} />
+            ))}
+          </div>
         </div>
       </div>
       <div className="row">
