@@ -3,6 +3,7 @@ import { Navbar, NavItem, Icon } from "react-materialize";
 const Nav = () => {
   return (
     <Navbar
+      className="blue-grey darken-3"
       alignLinks="right"
       brand={
         <a className="brand-logo" href="#">

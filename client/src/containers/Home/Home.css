@@ -1,8 +1,50 @@
+body {
+    /* background-image: url(./img/IMG_3503.jpeg); */
+    /* background-position: center;
+    background-size: cover;
+    background-attachment: fixed; */
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* .parallax-container {
+    height: 100vh;
+  } */
+
 .section-dark {
-    margin-top: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom:0!important;
+    /* margin-top: 50px; */
+    /* margin-bottom: 50px; */
     background-color: #37474f;
+}
+
+.section-light {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom:0!important;
+    /* margin-top: 50px; */
+    /* margin-bottom: 50px; */
+    background-color: #eef0f8;
 }
 
 #about-me {
     color: white;
+}
+
+#contacts {
+    color: black;
+}
+
+.logo-name {
+    padding-left: 20px;
+}
+
+#projects {
+    color: white;
+}
+
+#break-two {
+    background-color: black;
+    height: 1px;
 }
