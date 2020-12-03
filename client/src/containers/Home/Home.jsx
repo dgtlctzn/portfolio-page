@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div>
       <h1>Home Page</h1>
-      <div id="about-me" className="row">
-        <div className="col s12">
+      <div className="row section-dark">
+        <div id="about-me" className="col s12">
           <About />
         </div>
       </div>
@@ -26,7 +26,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row section-dark">
       <h3 className="center" id="projects">Projects</h3>
         {/* maps over json array of project details and images*/}
         {projects.map((project) => (

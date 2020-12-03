@@ -1,6 +1,8 @@
-#about-me {
+.section-dark {
     margin-top: 60px;
     background-color: #37474f;
-    color: white;
 }
 
+#about-me {
+    color: white;
+}

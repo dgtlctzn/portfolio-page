@@ -6,7 +6,7 @@ const About = () => {
     <div className="container">
       <div id="about-me" className="row animate__animated animate__fadeInLeft">
         <div className="col m4">
-          <img id="bike"  src="./img/me-on-a-bike.jpg" alt="" />
+          <img id="bike"  src="./img/me-on-a-bike.jpg" alt="me on a bike" />
         </div>
         <div className="col s12 m7">
           <h3>About Me</h3>
