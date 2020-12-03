@@ -32,6 +32,10 @@ body {
     color: white;
 }
 
+#about-blank {
+    height: 500px;
+}
+
 #contacts {
     color: black;
 }

@@ -4,7 +4,7 @@ import "./ProjectCard.css";
 
 const ProjectCard = ({ name, link, gh_link, image, icon, text, tech }) => {
   return (
-    <div className="container">
+    <div className="container animate__animated animate__fadeIn">
       <div className="col s12 m4">
         <Card
           className="card"

@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import About from "../../components/About/About";
-import Tech from "../../components/Tech/Tech";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+// import About from "../../components/About/About";
+// import Tech from "../../components/Tech/Tech";
 import "./Home.css";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+// import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import IconLink from "../../components/IconLink/IconLink";
 import projects from "../../json/projects.json";
 import technologies from "../../json/technologies.json";
@@ -10,14 +10,120 @@ import contacts from "../../json/contacts.json";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 
+const About = lazy(() => import("../../components/About/About"));
+const Tech = lazy(() => import("../../components/Tech/Tech"));
+const ProjectCard = lazy(() => import("../../components/ProjectCard/ProjectCard"));
+
+
 const Home = () => {
+  const [about, setAbout] = useState(false);
+  const aboutComponent = about ? <About /> : <div id="about-blank"></div>;
+
+  const [tech, setTech] = useState(false);
+  const techComponent = tech ? (
+    <>
+      {technologies.map((tech) => (
+        <Tech key={tech.id} {...tech} />
+      ))}
+    </>
+  ) : (
+    <div id="tech-blank"></div>
+  );
+
+  const [project, setProject] = useState(false);
+  const projectComponent = project ? (
+    <>
+      {projects.map((project) => (
+        <ProjectCard key={project.id} {...project} />
+      ))}
+    </>
+  ) : (
+    <div id="project-blank"></div>
+  );
 
   useEffect(() => {
     //   console.log(parallax.current);
-      var elems = document.querySelectorAll('.parallax');
+    var elems = document.querySelectorAll(".parallax");
 
     //   console.log(M)
-      M.Parallax.init(elems)
+    M.Parallax.init(elems);
+  }, []);
+
+  const lazyLoad = (entries) => {
+    entries.forEach((entry) => {
+      console.log("about: " + entry.isIntersecting);
+      if (!about) {
+        if (entry.isIntersecting) {
+          setAbout(true);
+        }
+      }
+    });
+  };
+
+  const lazyAbout = (entries) => {
+    entries.forEach((entry) => {
+      console.log("about: " + entry.isIntersecting);
+      if (!about) {
+        if (entry.isIntersecting) {
+          setAbout(true);
+        }
+      }
+    });
+  };
+
+  const lazyTech = (entries) => {
+    entries.forEach((entry) => {
+      console.log("tech: " + entry.isIntersecting);
+
+      console.log(entry.isIntersecting);
+      if (!tech) {
+        if (entry.isIntersecting) {
+          setTech(true);
+        }
+      }
+    });
+  };
+
+  const lazyProject = (entries) => {
+    entries.forEach((entry) => {
+      console.log("project: " + entry.isIntersecting);
+
+      console.log(entry.isIntersecting);
+      if (!project) {
+        if (entry.isIntersecting) {
+          setProject(true);
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    let options = {
+      rootMargin: "400px",
+      threshold: 1.0,
+    };
+    let optionsTwo = {
+      rootMargin: "40px",
+      threshold: 1.0,
+    };
+    let optionsThree = {
+        rootMargin: "0px",
+        threshold: 1.0,
+      };
+    const aboutObserver = new IntersectionObserver(lazyAbout, options);
+    const techObserver = new IntersectionObserver(lazyTech, optionsTwo);
+    const projectObserver = new IntersectionObserver(lazyProject, optionsThree);
+
+
+    let aboutTarget = document.querySelector("#about");
+    let techTarget = document.querySelector("#tech");
+    let projectTarget = document.querySelector("#projects");
+
+
+    aboutObserver.observe(aboutTarget);
+    techObserver.observe(techTarget);
+    projectObserver.observe(projectTarget);
+
   }, []);
 
   return (
@@ -29,17 +135,15 @@ const Home = () => {
       </div>
       <div id="about" className="row section-dark">
         <div id="about-me" className="col s12">
-          <About />
+          <Suspense fallback={null}>{aboutComponent}</Suspense>
         </div>
       </div>
-      <div className="row section-light">
+      <div id="tech" className="row section-light">
         <div className="col offset-m1">
           <h3>Technical Skills</h3>
           <div id="break-two"></div>
           <div className="row">
-            {technologies.map((tech) => (
-              <Tech key={tech.id} {...tech} />
-            ))}
+            <Suspense fallback={null}>{techComponent}</Suspense>
           </div>
         </div>
       </div>
@@ -47,10 +151,7 @@ const Home = () => {
         <h3 className="center" id="projects">
           Projects
         </h3>
-        {/* maps over json array of project details and images*/}
-        {projects.map((project) => (
-          <ProjectCard key={project.id} {...project} />
-        ))}
+        <Suspense fallback={null}>{projectComponent}</Suspense>
       </div>
       <div className="parallax-container">
         <div className="parallax">
