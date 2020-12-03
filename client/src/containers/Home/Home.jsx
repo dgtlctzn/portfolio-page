@@ -1,8 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-// import About from "../../components/About/About";
-// import Tech from "../../components/Tech/Tech";
 import "./Home.css";
-// import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import IconLink from "../../components/IconLink/IconLink";
 import projects from "../../json/projects.json";
 import technologies from "../../json/technologies.json";
@@ -42,27 +39,13 @@ const Home = () => {
   );
 
   useEffect(() => {
-    //   console.log(parallax.current);
     var elems = document.querySelectorAll(".parallax");
 
-    //   console.log(M)
     M.Parallax.init(elems);
   }, []);
 
-  const lazyLoad = (entries) => {
-    entries.forEach((entry) => {
-      console.log("about: " + entry.isIntersecting);
-      if (!about) {
-        if (entry.isIntersecting) {
-          setAbout(true);
-        }
-      }
-    });
-  };
-
   const lazyAbout = (entries) => {
     entries.forEach((entry) => {
-      console.log("about: " + entry.isIntersecting);
       if (!about) {
         if (entry.isIntersecting) {
           setAbout(true);
@@ -73,9 +56,6 @@ const Home = () => {
 
   const lazyTech = (entries) => {
     entries.forEach((entry) => {
-      console.log("tech: " + entry.isIntersecting);
-
-      console.log(entry.isIntersecting);
       if (!tech) {
         if (entry.isIntersecting) {
           setTech(true);
@@ -86,9 +66,6 @@ const Home = () => {
 
   const lazyProject = (entries) => {
     entries.forEach((entry) => {
-      console.log("project: " + entry.isIntersecting);
-
-      console.log(entry.isIntersecting);
       if (!project) {
         if (entry.isIntersecting) {
           setProject(true);
@@ -123,7 +100,6 @@ const Home = () => {
     aboutObserver.observe(aboutTarget);
     techObserver.observe(techTarget);
     projectObserver.observe(projectTarget);
-
   }, []);
 
   return (
