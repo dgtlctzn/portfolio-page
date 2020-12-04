@@ -6,8 +6,8 @@ const Nav = () => {
       className="blue-grey darken-3"
       alignLinks="right"
       brand={
-        <a className="brand-logo" href="#">
-          Joseph Perry
+        <a className="brand-logo" href="/">
+          Portfolio
         </a>
       }
       id="mobile-nav"
@@ -24,8 +24,9 @@ const Nav = () => {
         preventScrolling: true,
       }}
     >
-      <NavItem href="">Getting started</NavItem>
-      <NavItem href="components.html">Components</NavItem>
+      <NavItem href="#contact">Contact</NavItem>
+      <NavItem href="#about">About</NavItem>
+      <NavItem href="#projects">Projects</NavItem>
     </Navbar>
   );
 };

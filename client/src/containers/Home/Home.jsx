@@ -136,7 +136,7 @@ const Home = () => {
           <img src="./img/IMG_3503.jpeg" />
         </div>
       </div> */}
-      <div className="row contact">
+      <div id="contact" className="row contact">
         <div className="col offset-m1"></div>
         {/* <div id="contacts" className="col m12"> */}
           {contacts.map((contact) => (
