@@ -109,7 +109,9 @@ const Home = () => {
         </div>
       </div>
       <div id="about" className="row section-dark">
-        <div id="about-me" className="col s12">
+        <div id="about-me" className="col s12 offset-m1">
+          <h3>About Me</h3>
+          <div id="break"></div>
           <Suspense fallback={null}>{aboutComponent}</Suspense>
         </div>
       </div>
@@ -123,9 +125,10 @@ const Home = () => {
         </div>
       </div>
       <div className="row section-dark">
-        <h3 className="center" id="projects">
+        <h3 id="projects">
           Projects
         </h3>
+        <div id="break"></div>
         <Suspense fallback={null}>{projectComponent}</Suspense>
       </div>
       {/* <div className="parallax-container">
@@ -134,7 +137,8 @@ const Home = () => {
         </div>
       </div> */}
       <div className="row contact">
-        <div id="contacts" className="col m12">
+        <div className="col offset-m1"></div>
+        {/* <div id="contacts" className="col m12"> */}
           {contacts.map((contact) => (
             <IconLink key={contact.alt} {...contact} />
           ))}
@@ -176,7 +180,7 @@ const Home = () => {
             </Modal>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

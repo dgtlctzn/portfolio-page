@@ -4,12 +4,10 @@ import "./About.css";
 const About = () => {
   return (
     <div id="about-me" className="row animate__animated animate__fadeInLeft">
-      <div className="col m4">
+      <div className="col m3">
         <img id="bike" src="./img/me-on-a-bike.jpg" alt="me on a bike" />
       </div>
-      <div className="col s12 m7">
-        <h3>About Me</h3>
-        <div id="break"></div>
+      <div className="col s12 m7 paragraph">
         <p className="about">
           Full stack developer and recent Georgia Tech bootcamp grad based in
           Atlanta, GA. Passionate about building web applications that are

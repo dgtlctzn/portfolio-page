@@ -6,11 +6,10 @@
   padding: 30px;
 }
 
-#break {
-  height: 1px;
-  background-color: white;
+.about {
+  padding-top: 30px;
 }
 
-.about {
-  margin-top: 30px;
-}
+/* .paragraph {
+  margin-top: 100px;
+} */
