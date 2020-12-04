@@ -105,7 +105,7 @@ const Home = () => {
     <div>
       <div className="parallax-container">
         <div className="parallax">
-          <img id="background" src="./img/IMG_3503.jpeg" />
+          <img id="background" src="./img/Full-stack-development.png" />
         </div>
       </div>
       <div id="about" className="row section-dark">
