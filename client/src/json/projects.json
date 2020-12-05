@@ -7,7 +7,7 @@
         "image": "./img/ciphr-project.png",
         "icon": "./img/react-logo.png",
         "text": "A platform to share and solve coding algorithms featuring a browser Repl.",
-        "tech": ["React", "Express", "MongoDB", "Express"]
+        "tech": ["React", "Node.js", "MongoDB", "Express"]
     },
     {
         "id": 2,
