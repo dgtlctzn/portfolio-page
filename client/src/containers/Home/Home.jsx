@@ -1,5 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import "./Home.css";
+import About from "../../components/About/About";
+import Tech from "../../components/Tech/Tech";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import IconLink from "../../components/IconLink/IconLink";
 import projects from "../../json/projects.json";
 import technologies from "../../json/technologies.json";
@@ -7,11 +10,11 @@ import contacts from "../../json/contacts.json";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 
-const About = lazy(() => import("../../components/About/About"));
-const Tech = lazy(() => import("../../components/Tech/Tech"));
-const ProjectCard = lazy(() =>
-  import("../../components/ProjectCard/ProjectCard")
-);
+// const About = lazy(() => import("../../components/About/About"));
+// const Tech = lazy(() => import("../../components/Tech/Tech"));
+// const ProjectCard = lazy(() =>
+//   import("../../components/ProjectCard/ProjectCard")
+// );
 
 const Home = () => {
   const [about, setAbout] = useState(false);

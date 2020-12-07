@@ -1,4 +1,5 @@
 import { Navbar, NavItem, Icon } from "react-materialize";
+import "./Nav.css"
 
 const Nav = () => {
   return (
